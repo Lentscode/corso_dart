@@ -1,112 +1,56 @@
 void main(List<String> arguments) {
-  // Uno `switch` statement ha lo stesso scopo di un `if` statement, ma viene utilizzato
-  // per lo più quando si presentano più casi diversi.
+  // Vediamo più in dettaglio le stringhe. Esse non sono altro che un'insieme di caratteri
+  // ordinati uno dopo l'altro, ad esempio la stringa
 
-  // Prendiamo come esempio una variabile che contiene un voto in trentesimi, quindi da 0 a 30
-  // e in base a questo vogliamo settare in un'altra variabile il corrispondente voto da A ad F.
+  String a = "Hello World";
 
-  final int votoInTrentesimi = 26;
-  String votoInLettera; // la variabile da settare
+  // non è altro che la successione dei caratteri H, e, l, l, eccetera
+  // (compreso lo spazio).
 
-  // Uno `switch` è composto dalla variabile che vogliamo controllare e dai casi possibili, ognuno
-  // dei quali contrassegnato dalla keyword `case`.
-  // Dopo i due punti inseriamo quello che vogliamo eseguire in quel caso.
-  // (Come nell'if, il programma scorre i casi dall'alto verso il basso).
-  switch (votoInTrentesimi) {
-    case >= 28 && <= 30: //. la variabile [votoInTrentesimi] è implicita, non serve inserirla nei casi
-      votoInLettera = 'A';
-    case >= 25 && <= 27:
-      votoInLettera = 'B';
-    case >= 21 && <= 24:
-      votoInLettera = 'C';
-    case >= 18 && <= 20:
-      votoInLettera = 'D';
-    case >= 15 && <= 17:
-      votoInLettera = 'E';
-  }
+  // Una stringa la possiamo racchiudere sia con virgolette singole che doppie
 
-  print(votoInLettera); //! notiamo un errore
+  a = 'Hello World'; //. stesso risultato di prima
 
-  // L'errore ci è dato perché non soddisfiamo tutti i casi.
-  // Infatti, assegniamo il [votoInLettera] soltanto per i voti da 15 a 30,
-  // quando un voto può essere meno di 15, e comunque, in caso di errore, potrebbe
-  // essere inserito un qualsiasi numero, anche negativo.
+  // Se vogliamo aggiungere un carattere speciale come un apostrofo,
+  // e abbiamo le virgolette singole, possiamo:
+  // - sostituire le virgolette singole con le doppie
+  a = "Com'è il tempo?"; //. preferibile
+  // - aggiungere un backslash (\) prima dell'apostrofo
+  a = 'Com\'è il tempo?';
 
-  // Quello che dobbiamo aggiungere è un caso di default, una sorta di
-  // "else".
+  // Ritornando al discorso di prima, essendo una stringa una lista di caratteri,
+  // possiamo ottenere ognuno di questi conoscendo la loro posizione, ovvero
+  // il loro INDICE. (Capiremo meglio quando parleremo di stringhe)
 
-  switch (votoInTrentesimi) {
-    case >= 28 && <= 30:
-      votoInLettera = 'A';
-    case >= 25 && <= 27:
-      votoInLettera = 'B';
-    case >= 21 && <= 24:
-      votoInLettera = 'C';
-    case >= 18 && <= 20:
-      votoInLettera = 'D';
-    case >= 15 && <= 17:
-      votoInLettera = 'E';
-    default:
-      votoInLettera = 'F';
-  }
+  print(a[1]); //? Stampa 'o', perché si comincia dallo 0, quindi la 'o', seconda, ha indice 1.
 
-  print(votoInLettera); //. l'errore è scomparso
+  // ------------------------------------------------------------------------------
 
-  // Introduciamo una nuova keyword: `break`. Serve a uscire da parti di codice secondo certe condizioni,
-  // che possiamo specificare noi. Nello switch statement, viene aggiunta implicitamente alla fine di ogni caso;
-  // tuttavia potrebbe servirci nel caso in cui, per un determinato `case`, non volessimo
-  // eseguire del codice.
+  // Possiamo unire due o più stringhe in due modi:
+  // - "sommandole"
 
-  switch (votoInTrentesimi) {
-    case >= 28 && <= 30:
-      //. Break aggiunto qui, se non ci fosse e la linea fosse vuota,
-      //. questo `case` si ancorerebbe a quello successivo,
-      //. settando il votoInLettera a 'B'.
-      break;
-    case >= 25 && <= 27:
-      votoInLettera = 'B';
-    case >= 21 && <= 24:
-      votoInLettera = 'C';
-    case >= 18 && <= 20:
-      votoInLettera = 'D';
-    case >= 15 && <= 17:
-      votoInLettera = 'E';
-    default:
-      votoInLettera = 'F';
-  }
+  String citta = "Palermo";
+  //. Notare due cose: ho aggiunto due spazi alla "a", ci consiglia di usare l'interpolazione (secondo metodo).
+  String stringaCompleta = a + " a " + citta;
 
-  // ---------------------------------------------------------------------------------------
+  // - interpolazione, che consiste nel formare direttamente la stringa, inserendo le altre stringhe
+  // (o altri tipi di valore) tramite il simbolo di dollaro.
 
-  // Vediamo come eseguire operazioni aritmetiche.
-  // Banalmente abbiamo gli operatori che tutti conosciamo:
-  // +, -, *, /
+  stringaCompleta = "$a a $citta";
 
-  int somma = 6 + 4;
-  int sottrazione = 6 - 4;
-  int prodotto = 6 * 4;
-  double divisione = 6 / 4; //? Da notare che la divisione ritorna un double
+  print(stringaCompleta);
 
-  // Tuttavia c'è un'altra operazione, denominata "modulo".
-  // Il suo risultato è il resto della divisione tra primo e secondo termine
+  // ------------------------------------------------------------------------------
 
-  int modulo = 6 % 4; // Il resto di 6 / 4 è 2.
+  // Dart ci offre un sacco di funzioni (vedremo nei prossimi video in particolare) per lavorare
+  // con le stringhe.
 
-  // Consideriamo di avere una variabile n. Per eseguire delle operazioni su di essa,
-  // possiamo usare delle shortcuts.
+  // Un esempio è contains(), che ci permette di capire se una stringa contiene un certo carattere,
+  // o un certo pattern (passato con RegEx).
+  stringaCompleta.contains('C'); //. Ritorna true, siccome 'C' si trova nella stringa
 
-  double n = 8; //? Impostata come double per permettere la divisione
-
-  n += 9; // È la forma abbreviata di n = n + 9
-  n -= 3;
-  n *= 2;
-  n /= 7;
-  n %= 6;
-  n++; //? Questo aggiunge 1
-  n--; //? Questo sottrae 1
-
-  // Ovviamente possiamo costruire espressioni aritmetiche più complesse,
-  // tenendo sempre le regole di priorità delle operazioni, ovvero le parentesi prima di tutto,
-  // poi moltiplicazioni e divisioni, infine addizioni e sottrazioni
-
-  n = 7 + 4 * (5 - 2); //. n = 19
+  // Un altro esempio è split(), molto utile per separare più parole all'interno di una stringa,
+  // dando come pattern lo spazio vuoto. Ritorna una lista delle singole parole all'interno della stringa,
+  // separate secondo il pattern dato.
+  stringaCompleta.split(' '); //. Ritorna ["Com'è", "il", "tempo", "a", "Palermo?"]
 }
