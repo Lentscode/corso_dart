@@ -1,11 +1,11 @@
 /*
 
-  - cosa sono le liste
-  - indici e recupero elemento
-  - creazione, aggiunzione, modifica
-  - metodi liste
-  - iterazione
-  - cosa sono i Set e differenze con le liste
+  - cosa sono le mappe
+  - sintassi creazione
+  - chiavi e valori
+  - ottenere chiavi e valori
+  - modifica e aggiunzione valori
+  - casi d'uso
 
 */
 
