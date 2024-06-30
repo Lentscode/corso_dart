@@ -1,11 +1,13 @@
 /*
 
-  - come si crea una funzione
-  - sintassi funzione
-  - invocare funzione
-  - argomenti e parametri
-  - tipi di argomenti
+  - cosa sono le liste
+  - indici e recupero elemento
+  - creazione, aggiunzione, modifica
+  - metodi liste
+  - iterazione
+  - cosa sono i Set e differenze con le liste
 
 */
 
-void main(List<String> arguments) {}
+void main(List<String> arguments) {
+}
