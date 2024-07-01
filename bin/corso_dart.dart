@@ -1,11 +1,9 @@
 /*
 
-  - cosa sono le mappe
-  - sintassi creazione
-  - chiavi e valori
-  - ottenere chiavi e valori
-  - modifica e aggiunzione valori
-  - casi d'uso
+  - cosa sono classi
+  - proprietà e metodi
+  - invocazione
+  - costruttori, lista di inizializzazione, corpo del costruttore
 
 */
 
