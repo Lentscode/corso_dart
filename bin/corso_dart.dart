@@ -9,5 +9,4 @@
 
 */
 
-void main(List<String> arguments) {
-}
+void main(List<String> arguments) {}
